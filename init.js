@@ -135,21 +135,6 @@ register_user_stylesheet(
 require("casual-spelling");
 
 // ***********************************************************************
-// firebug setting
-// ***********************************************************************
-define_variable("firebug_url",
-    "http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js");
-function firebug (I) {
-    var doc = I.buffer.document;
-    var script = doc.createElement('script');
-    script.setAttribute('type', 'text/javascript');
-    script.setAttribute('src', firebug_url);
-    script.setAttribute('onload', 'firebug.init();');
-    doc.body.appendChild(script);
-}
-interactive("firebug", "open firebug lite", firebug);
-
-// ***********************************************************************
 // favicon
 // ***********************************************************************
 require("favicon");
@@ -164,27 +149,4 @@ function possibly_valid_url (str) {
         && /[:\/\.]/.test(str);
 }
 
-// ***********************************************************************
-// sure to quit
-// ***********************************************************************
-add_hook("window_before_close_hook",
-         function () {
-             var w = get_recent_conkeror_window();
-             var result = (w == null) ||
-                 "y" == (yield w.minibuffer.read_single_character_option(
-                     $prompt = "Quit Conkeror? (y/n)",
-                     $options = ["y", "n"]));
-             yield co_return(result);
-         });
 
-// ***********************************************************************
-// theme setting
-// ***********************************************************************
-let (themes = get_home_directory()) {
-    themes.append(".conkerorrc");
-    themes.append("themes");
-    theme_load_paths.unshift(themes);
-};
-
-theme_load("mono");
-theme_load("jjf");
