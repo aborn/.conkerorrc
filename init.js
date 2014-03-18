@@ -1,4 +1,7 @@
-// .conkerorrc is conkeror configure file
+// ***********************************************************************
+// ini.js   conkeror configure file
+// Aborn Jiang   2014-03-18
+// ***********************************************************************
 require("gmail");
 require("github");
 require("twitter");
