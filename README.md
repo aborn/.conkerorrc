@@ -2,10 +2,10 @@
 ===========
 
 ### INTRO
-Configure files for mozilla-based emacs-style web-browser
+Configure files for conkeror, which is a mozilla-based emacs-style web-browser
 
 ### REFS
-Most configure files are come form
+Most configure files come from
 * [PhilHudson](https://github.com/PhilHudson/conkerorrc)
 * [John Foech](http://retroj.net/git/conkerorrc/)
 
